@@ -15,4 +15,11 @@ function getComputerChoice() {
    }
 }
 
-
+function getHumanChoice() {
+    /*
+    1. Prompt user for choice using prompt().
+    2. Parse user input.
+    3. If input is a valid choice (rock, paper, or scissors), return that choice.
+    4. If input is not a valid choice, continue prompting until a valid choice is entered.
+    */
+}
