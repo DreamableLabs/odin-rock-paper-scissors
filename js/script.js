@@ -35,12 +35,6 @@ function getHumanChoice() {
 
 
 function playGame() {
-    /*
-    1. Initialize a round counter to 0.
-    2. Play a round. If there is a winner, increment the round counter and the appropriate score.
-    If there is no winner, do not increment the round counter.
-    3. Continue to play rounds until the round counter equals 5, then declare the winner based on highest score.
-    */
     function playRound(humanChoice, computerChoice) {
         switch(humanChoice) {
             case 'Rock':
