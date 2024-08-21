@@ -85,14 +85,10 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    while (roundCount < 5) {
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
-            const roundHasWinner = playRound(humanSelection, computerSelection);
-            if (roundHasWinner) {
-                roundCount++;
-            }
-    }
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    const roundHasWinner = playRound(humanSelection, computerSelection);
+
 
     if (humanScore > computerScore) {
             console.log(`You won the game! You won ${humanScore} rounds and the computer won ${computerScore} rounds.`);
