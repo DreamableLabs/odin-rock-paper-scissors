@@ -105,12 +105,3 @@ const scoreboard = document.querySelector('#scoreboard');
 let humanScore = 0;
 let computerScore = 0;
 
-
-
-/*if (humanScore > computerScore) {
-        console.log(`You won the game! You won ${humanScore} rounds and the computer won ${computerScore} rounds.`);
-} else if (computerScore > humanScore) {
-        console.log(`You lost the game! You won ${humanScore} rounds and the computer won ${computerScore} rounds.`);
-} else {
-        alert('Error. No game winner found. Since 5 rounds are played, there should always be one clear winner.');
-}*/
