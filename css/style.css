@@ -15,7 +15,8 @@ body {
     margin: 0;
 }
 
-#results {
+#results, 
+#scoreboard {
     display: flex;
     justify-content: center;
     text-align: center;

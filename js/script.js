@@ -39,46 +39,57 @@ function playRound(humanChoice, computerChoice) {
         case 'Rock':
             if (computerChoice === 'Rock') {
                 results.innerText = "It's a tie!";
-                return false;
             } else if (computerChoice === 'Paper') {
                 results.innerText = 'You lose! Paper beats Rock.';
                 computerScore++;
-                return true;
+                updateScores()
             } else if (computerChoice === 'Scissors') {
                 results.innerText = 'You win! Rock beats Scissors';
                 humanScore++;
-                return true;
+                updateScores()
             }
             break;
         case 'Paper':
             if (computerChoice === 'Rock') {
                 results.innerText = 'You win! Paper beats Rock';
                 humanScore++;
-                return true;
+                updateScores()
             } else if (computerChoice === 'Paper') {
                 results.innerText = "It's a tie!";
-                return false;
             } else if (computerChoice === 'Scissors') {
                 results.innerText = 'You lose! Scissors beats Paper.';
                 computerScore++;
-                return true;
+                updateScores()
             }
             break;
         case 'Scissors':
             if (computerChoice === 'Rock') {
                 results.innerText = 'You lose! Rock beats Scissors.';
                 computerScore++;
-                return true;
+                updateScores()
             } else if (computerChoice === 'Paper') {
                 results.innerText = 'You win! Scissors beats Paper';
                 humanScore++;
-                return true;
+                updateScores()
             } else if (computerChoice === 'Scissors') {
                 results.innerText = "It's a tie!";
-                return false;
             }
             break;
     }
+
+    if (humanScore === 5) {
+        results.innerText = 'You won the game!';
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        results.innerText = 'You lost the game!';
+        humanScore = 0;
+        computerScore = 0;
+    }
+}
+
+function updateScores() {
+    scoreboard.innerText = `Scoreboard \n You: ${humanScore} \n Computer: ${computerScore}`
 }
 
 const buttons = document.querySelector('#buttons');
@@ -89,6 +100,7 @@ buttons.addEventListener('click', (e) => {
 })
 
 const results = document.querySelector('#results');
+const scoreboard = document.querySelector('#scoreboard');
 
 let humanScore = 0;
 let computerScore = 0;
