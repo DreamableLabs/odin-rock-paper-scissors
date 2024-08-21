@@ -34,69 +34,67 @@ function getHumanChoice() {
 }
 
 
-function playGame() {
-    function playRound(humanChoice, computerChoice) {
-        switch(humanChoice) {
-            case 'Rock':
-                if (computerChoice === 'Rock') {
-                    console.log("It's a tie!");
-                    return false;
-                } else if (computerChoice === 'Paper') {
-                    console.log('You lose! Paper beats Rock.')
-                    computerScore++;
-                    return true;
-                } else if (computerChoice === 'Scissors') {
-                    console.log('You win! Rock beats Scissors')
-                    humanScore++;
-                    return true;
-                }
-                break;
-            case 'Paper':
-                if (computerChoice === 'Rock') {
-                    console.log('You win! Paper beats Rock');
-                    humanScore++;
-                    return true;
-                } else if (computerChoice === 'Paper') {
-                    console.log("It's a tie!")
-                    return false;
-                } else if (computerChoice === 'Scissors') {
-                    console.log('You lose! Scissors beats Paper.')
-                    computerScore++;
-                    return true;
-                }
-                break;
-            case 'Scissors':
-                if (computerChoice === 'Rock') {
-                    console.log('You lose! Rock beats Scissors.');
-                    computerScore++;
-                    return true;
-                } else if (computerChoice === 'Paper') {
-                    console.log('You win! Scissors beats Paper')
-                    humanScore++;
-                    return true;
-                } else if (computerChoice === 'Scissors') {
-                    console.log("It's a tie!")
-                    return false;
-                }
-                break;
-        }
-    }
-    let roundCount = 0;
-    let humanScore = 0;
-    let computerScore = 0;
-
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    const roundHasWinner = playRound(humanSelection, computerSelection);
-
-
-    if (humanScore > computerScore) {
-            console.log(`You won the game! You won ${humanScore} rounds and the computer won ${computerScore} rounds.`);
-    } else if (computerScore > humanScore) {
-            console.log(`You lost the game! You won ${humanScore} rounds and the computer won ${computerScore} rounds.`);
-    } else {
-            alert('Error. No game winner found. Since 5 rounds are played, there should always be one clear winner.');
+function playRound(humanChoice, computerChoice) {
+    switch(humanChoice) {
+        case 'Rock':
+            if (computerChoice === 'Rock') {
+                console.log("It's a tie!");
+                return false;
+            } else if (computerChoice === 'Paper') {
+                console.log('You lose! Paper beats Rock.')
+                computerScore++;
+                return true;
+            } else if (computerChoice === 'Scissors') {
+                console.log('You win! Rock beats Scissors')
+                humanScore++;
+                return true;
+            }
+            break;
+        case 'Paper':
+            if (computerChoice === 'Rock') {
+                console.log('You win! Paper beats Rock');
+                humanScore++;
+                return true;
+            } else if (computerChoice === 'Paper') {
+                console.log("It's a tie!")
+                return false;
+            } else if (computerChoice === 'Scissors') {
+                console.log('You lose! Scissors beats Paper.')
+                computerScore++;
+                return true;
+            }
+            break;
+        case 'Scissors':
+            if (computerChoice === 'Rock') {
+                console.log('You lose! Rock beats Scissors.');
+                computerScore++;
+                return true;
+            } else if (computerChoice === 'Paper') {
+                console.log('You win! Scissors beats Paper')
+                humanScore++;
+                return true;
+            } else if (computerChoice === 'Scissors') {
+                console.log("It's a tie!")
+                return false;
+            }
+            break;
     }
 }
 
-playGame();
+const buttons = document.querySelector('#buttons');
+buttons.addEventListener('click', (e) => {
+    const humanSelection = e.target.innerText;
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+})
+
+let humanScore = 0;
+let computerScore = 0;
+
+/*if (humanScore > computerScore) {
+        console.log(`You won the game! You won ${humanScore} rounds and the computer won ${computerScore} rounds.`);
+} else if (computerScore > humanScore) {
+        console.log(`You lost the game! You won ${humanScore} rounds and the computer won ${computerScore} rounds.`);
+} else {
+        alert('Error. No game winner found. Since 5 rounds are played, there should always be one clear winner.');
+}*/
